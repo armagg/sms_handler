@@ -6,6 +6,13 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+    {% block head_css %}
+        <!-- Copy CSS from https://getbootstrap.com/docs/4.1/getting-started/introduction/#css -->
+    {% endblock %}
+    {% block head_js %}
+        <!-- Copy JavaScript from https://getbootstrap.com/docs/4.1/getting-started/introduction/#js -->
+    {% endblock %}
+
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
