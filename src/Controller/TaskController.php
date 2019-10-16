@@ -5,11 +5,9 @@ namespace App\Controller;
 
 
 use App\Entity\Task;
+use App\Form\TaskType;
 use DateTime;
-use Doctrine\DBAL\Types\DateType;
-use Doctrine\DBAL\Types\TextType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
 class TaskController extends AbstractController
@@ -21,11 +19,15 @@ class TaskController extends AbstractController
         $task->setDueDate(new DateTime('now'));
 
 
-        $form = $this->createFormBuilder($task)
-            ->add('task', TextType::class)
-            ->add('dueDate', DateType::class)
-            ->add('save', SubmitType::class, ['label' => 'Create new Task'])
-            ->getForm();
+        $form = $this->createForm(TaskType::class, $task);
+
+        return $this->render(
+            'task/newTask.twig',
+            [
+                'form' => $form->createView()
+            ]
+        );
+
     }
 
 }

@@ -1,6 +1,8 @@
 <?php
+
 use App\Controller\BlogController;
 use App\Controller\LuckyController;
+use App\Controller\TaskController;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
 return function (RoutingConfigurator $routes) {
@@ -10,4 +12,6 @@ return function (RoutingConfigurator $routes) {
         ->methods(['GET', 'POST'])
         ->requirements(['max-number' => '\d+']);
 
+    $routes->add('new_task_form', '/new_task_form')
+        ->controller([TaskController::class, 'new']);
 };
