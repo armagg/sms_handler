@@ -75,9 +75,9 @@ class SMS
         return $this->receiverNumber;
     }
 
-    public function setReceiverNumber(string $recieiverNumber): self
+    public function setReceiverNumber(string $receiverNumber): self
     {
-        $this->receiverNumber = $recieiverNumber;
+        $this->receiverNumber = $receiverNumber;
 
         return $this;
     }
